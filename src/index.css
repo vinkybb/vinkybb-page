@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rye&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "Courier Prime", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-display: "Rye", "Playfair Display", serif;
+}
+
+body {
+  background-color: #f4f1ea; /* 老旧纸张的颜色 */
+  color: #1a1a1a; /* 接近黑色的墨水色 */
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* 自定义票根边缘效果 (可选的装饰) */
+.ticket-border {
+  position: relative;
+}
+.ticket-border::before,
+.ticket-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  background-image: radial-gradient(circle at center, #f4f1ea 4px, transparent 5px);
+  background-size: 100% 20px;
+}
+.ticket-border::before {
+  left: -6px;
+}
+.ticket-border::after {
+  right: -6px;
+}
