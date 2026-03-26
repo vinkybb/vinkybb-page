@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Mail, Twitter, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import avatarImg from '@/assets/avatar.jpg';
 
 const projects = [
@@ -160,16 +160,13 @@ export default function App() {
               
               {/* Social Links */}
               <div className="flex items-center justify-center gap-4 mt-8 font-mono text-sm">
-                <a href="#" className="flex items-center gap-1 hover:underline underline-offset-4 decoration-2">
+                <a
+                  href="https://github.com/vinkybb"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1 hover:underline underline-offset-4 decoration-2"
+                >
                   <Github className="w-4 h-4" /> GITHUB
-                </a>
-                <span className="text-gray-400">|</span>
-                <a href="#" className="flex items-center gap-1 hover:underline underline-offset-4 decoration-2">
-                  <Twitter className="w-4 h-4" /> TWITTER
-                </a>
-                <span className="text-gray-400">|</span>
-                <a href="#" className="flex items-center gap-1 hover:underline underline-offset-4 decoration-2">
-                  <Mail className="w-4 h-4" /> EMAIL
                 </a>
               </div>
             </div>
