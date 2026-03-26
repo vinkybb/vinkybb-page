@@ -5,48 +5,48 @@ import avatarImg from '@/assets/avatar.jpg';
 const projects = [
   {
     id: 1,
-    title: "AI+ 医疗辅助决策平台",
-    subtitle: "Intelligent Healthcare",
+    title: "TravelNeko",
+    subtitle: "Multi-Agent Narrative Game",
     description:
-      "给医生配一位不会偷懒的 AI 小搭档，帮忙读片、整理信息和给出决策参考，让一线医生少一点机械体力活，多一点专注和安心。外观看起来很严肃，细节里藏着一点点可爱。",
-    date: "08/Apr/2026",
-    time: "20:00-21:29",
-    category: "AI / Healthcare / B2B",
-    price: "ENTERPRISE",
-    seat: "06-10",
-    hall: "MED",
+      "一个把多 Agent 叙事能力做成可玩体验的旅行猫咪小游戏原型。它不是简单的聊天壳，而是小镇 RPG + AI 剧情系统：主角猫可以在地图里探索、和猫咪互动、触发多 Agent 对话，并自动沉淀成旅行手账。",
+    date: "2026",
+    category: "Game / Multi-Agent / Storytelling",
+    type: "Open Source",
+    stack: "Next.js / Step API",
+    repo: "vinkybb/travelNeko",
+    repoUrl: "https://github.com/vinkybb/travelNeko",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop"
+      "https://raw.githubusercontent.com/vinkybb/travelNeko/main/docs/screenshots/homepage-start-screen.png"
   },
   {
     id: 2,
-    title: "企业级智能知识引擎",
-    subtitle: "Enterprise AI Agent",
+    title: "Marketing Skills",
+    subtitle: "OpenClaw Marketing Skill Library",
     description:
-      "让企业内的文档从“考古现场”变成“点开就懂”的知识小宇宙。像一支会飞的知识小队，在群聊、文档和工单之间穿梭，把散落的信息捞出来，整理成一句能读懂的答案。对外是严谨知识库，对内是有点会吐槽的 AI 同事。",
-    date: "12/Nov/2026",
-    time: "14:30-16:00",
-    category: "AI / SaaS / Productivity",
-    price: "B-END",
-    seat: "A-01",
-    hall: "TECH",
+      "一个面向营销与增长团队的开源 AI skill 库，不是只会产出几段文案，而是覆盖市场研究、用户定位、SEO、预算分配、增长实验和活动复盘等完整工作链。重点是让本地 Agent 真正接住营销执行任务。",
+    date: "2026",
+    category: "AI / Marketing / Agent Skills",
+    type: "Open Source",
+    stack: "Python / Skill System",
+    repo: "vinkybb/marketing-skills",
+    repoUrl: "https://github.com/vinkybb/marketing-skills",
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: 3,
-    title: "AIGC 创意营销中台",
-    subtitle: "Creative AI Platform",
+    title: "Enterprise Invoice Agent",
+    subtitle: "Invoice Ops Copilot",
     description:
-      "给市场同学一台“变身器”：一边是严肃的品牌规范，一边是可以放心开脑洞的创意工厂。支持从文案、图像到短视频的全链路生成，让 campaign 同时踩中 KPI 和少女心。颜色可以很大胆，预算必须很清醒。",
-    date: "05/Jan/2026",
-    time: "09:00-11:45",
-    category: "AIGC / Marketing",
-    price: "PRO",
-    seat: "B-12",
-    hall: "MKT",
+      "一个企业票据管理平台原型，把 PDF / 图片上传、OCR 字段提取、流程流转、风险审计和智能客服自动操作放进同一个腾讯文档风格工作台。重点在于自然语言先拆成 allowlist 动作，再安全驱动页面和流程。",
+    date: "2026",
+    category: "AI / OCR / Enterprise SaaS",
+    type: "Open Source",
+    stack: "Next.js / TDesign",
+    repo: "vinkybb/enterprise-invoice-agent",
+    repoUrl: "https://github.com/vinkybb/enterprise-invoice-agent",
     image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop"
+      "https://raw.githubusercontent.com/vinkybb/enterprise-invoice-agent/main/public/screenshots/homepage.png"
   }
 ];
 
@@ -225,7 +225,12 @@ export default function App() {
                               {project.subtitle}
                             </p>
                           </div>
-                          <a href="#" className="p-2 border-2 border-gray-600 rounded-full text-gray-400 hover:border-[#f4f1ea] hover:text-[#f4f1ea] transition-colors">
+                          <a
+                            href={project.repoUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="p-2 border-2 border-gray-600 rounded-full text-gray-400 hover:border-[#f4f1ea] hover:text-[#f4f1ea] transition-colors"
+                          >
                             <ExternalLink className="w-5 h-5" />
                           </a>
                         </div>
@@ -243,20 +248,20 @@ export default function App() {
                         
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 font-mono text-sm">
                           <div>
-                            <p className="text-gray-500 mb-1">HALL :</p>
-                            <p className="font-bold text-lg text-gray-300">{project.hall}</p>
+                            <p className="text-gray-500 mb-1">REPO :</p>
+                            <p className="font-bold text-lg text-gray-300 break-all">{project.repoUrl}</p>
                           </div>
                           <div>
-                            <p className="text-gray-500 mb-1">SEAT :</p>
-                            <p className="font-bold text-lg text-gray-300">{project.seat}</p>
+                            <p className="text-gray-500 mb-1">STACK :</p>
+                            <p className="font-bold text-lg text-gray-300">{project.stack}</p>
                           </div>
                           <div>
-                            <p className="text-gray-500 mb-1">DATE :</p>
+                            <p className="text-gray-500 mb-1">YEAR :</p>
                             <p className="font-bold text-lg text-gray-300">{project.date}</p>
                           </div>
                           <div>
-                            <p className="text-gray-500 mb-1">PRICE :</p>
-                            <p className="font-bold text-lg text-gray-300">{project.price}</p>
+                            <p className="text-gray-500 mb-1">TYPE :</p>
+                            <p className="font-bold text-lg text-gray-300">{project.type}</p>
                           </div>
                         </div>
                       </div>
