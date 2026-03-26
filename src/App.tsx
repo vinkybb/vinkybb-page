@@ -215,12 +215,19 @@ export default function App() {
                       <div>
                         <div className="flex justify-between items-start mb-4">
                           <div>
-                            <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-white">
-                              {project.title}
-                            </h3>
-                            <p className="font-mono text-sm tracking-widest text-gray-400">
-                              {project.subtitle}
-                            </p>
+                            <a
+                              href={project.repoUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="group/title inline-block hover:opacity-90 transition-opacity"
+                            >
+                              <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-white underline-offset-8 group-hover/title:underline">
+                                {project.title}
+                              </h3>
+                              <p className="font-mono text-sm tracking-widest text-gray-400">
+                                {project.subtitle}
+                              </p>
+                            </a>
                           </div>
                           <a
                             href={project.repoUrl}
