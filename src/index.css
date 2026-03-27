@@ -33,3 +33,25 @@ body {
 .ticket-border::after {
   right: -6px;
 }
+
+@keyframes run-cat {
+  0% {
+    transform: translateX(-10vw) translateY(0) scaleX(-1);
+  }
+  25% {
+    transform: translateX(20vw) translateY(-10px) scaleX(-1);
+  }
+  50% {
+    transform: translateX(50vw) translateY(0) scaleX(-1);
+  }
+  75% {
+    transform: translateX(80vw) translateY(-10px) scaleX(-1);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0) scaleX(-1);
+  }
+}
+
+.animate-run-cat {
+  animation: run-cat 3s linear forwards;
+}

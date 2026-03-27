@@ -1,5 +1,5 @@
-import React from 'react';
-import { Github, ExternalLink, Mail, Linkedin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, ExternalLink, Mail, Linkedin, Cat } from 'lucide-react';
 import avatarImg from '@/assets/avatar.jpg';
 
 const projects = [
@@ -48,23 +48,35 @@ const projects = [
 ];
 
 export default function App() {
+  const [cats, setCats] = useState<{ id: number; top: number }[]>([]);
+
+  const handleAvatarClick = () => {
+    // 随机生成猫咪的高度，避免多只猫重叠，限制在视口中间或偏下
+    const top = Math.random() * 40 + 40; // 40vh 到 80vh 之间
+    const newCat = { id: Date.now(), top };
+    setCats((prev) => [...prev, newCat]);
+    
+    // 3秒后动画结束，移除猫咪
+    setTimeout(() => {
+      setCats((prev) => prev.filter((cat) => cat.id !== newCat.id));
+    }, 3000);
+  };
+
   return (
-    <div className="min-h-screen font-serif selection:bg-black selection:text-[#f4f1ea] flex flex-col bg-[#f4f1ea]">
+    <div id="home" className="min-h-screen font-serif selection:bg-black selection:text-[#f4f1ea] flex flex-col bg-[#f4f1ea]">
       
       {/* Top Black Bar */}
       <nav className="bg-[#1a1a1a] text-[#f4f1ea] py-2 px-4 border-b-4 border-black w-full relative z-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase">
           <div className="hidden md:block font-bold text-gray-400">Est. 2026</div>
           <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6">
-            <a href="#" className="hover:text-white transition-colors">Home</a>
+            <a href="#home" className="hover:text-white transition-colors">Home</a>
             <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white transition-colors">Portfolio</a>
+            <a href="#about" className="hover:text-white transition-colors">About</a>
             <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white transition-colors">About</a>
+            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
             <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
-            <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white transition-colors">Blog</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </div>
           <div className="hidden md:flex items-center gap-2">
             <span className="text-gray-400">Search</span>
@@ -78,7 +90,7 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4 md:px-8 lg:px-12">
           
           {/* Header / Hero Section */}
-        <header className="border-4 border-black p-6 md:p-10 mb-12 relative bg-[#f4f1ea]">
+        <header id="about" className="border-4 border-black p-6 md:p-10 mb-12 relative bg-[#f4f1ea]">
           {/* Decorative Corner Elements */}
           <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-black"></div>
           <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-black"></div>
@@ -87,13 +99,13 @@ export default function App() {
 
           <div className="flex flex-col items-center justify-center gap-4 pt-4 pb-2">
             {/* Avatar */}
-            <div className="shrink-0 relative mb-2">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-black overflow-hidden relative z-10 bg-black mx-auto">
+            <div className="shrink-0 relative mb-2 group cursor-pointer" onClick={handleAvatarClick}>
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-black overflow-hidden relative z-10 bg-black mx-auto transform transition-transform group-hover:scale-105">
                 {/* 请将此处的 src 替换为你上传的图片的实际 URL 或本地路径 */}
                 <img 
                   src={avatarImg} 
                   alt="vinkybb" 
-                  className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
                   onError={(e) => {
                     // 如果图片加载失败，回退到占位图
                     (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop&grayscale=true";
@@ -101,7 +113,7 @@ export default function App() {
                 />
               </div>
               {/* Decorative circle behind avatar */}
-              <div className="absolute -inset-2 border-2 border-dashed border-black rounded-full animate-[spin_60s_linear_infinite]"></div>
+              <div className="absolute -inset-2 border-2 border-dashed border-black rounded-full animate-[spin_60s_linear_infinite] group-hover:border-solid transition-all"></div>
             </div>
 
             {/* Intro Text */}
@@ -156,7 +168,7 @@ export default function App() {
                 {/* Greeting & Name */}
                 <div className="space-y-2 text-center">
                   <h1 className="font-bold text-3xl md:text-4xl tracking-wide text-gray-900" style={{ fontFamily: 'Rye, serif' }}>
-                    你好，我是 Vinky
+                    你好，我是石雯静
                   </h1>
                   <p className="text-xl text-gray-600 font-serif italic">
                     Hi, I'm Vinky (Wenjing Shi)
@@ -164,20 +176,24 @@ export default function App() {
                 </div>
 
                 {/* Tags */}
-                <div className="flex flex-wrap justify-center items-center gap-3 font-mono text-xs md:text-sm tracking-widest text-gray-600 uppercase">
-                  <span className="px-3 py-1 border border-gray-300 rounded-full">AI Fiend</span>
+                <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2 font-mono text-xs md:text-sm tracking-tight md:tracking-normal text-gray-600 uppercase">
+                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full">AI Fiend</span>
                   <span className="text-gray-300">•</span>
-                  <span className="px-3 py-1 border border-gray-300 rounded-full">ESTP</span>
+                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full">ESTP</span>
                   <span className="text-gray-300">•</span>
-                  <span className="px-3 py-1 border border-gray-300 rounded-full">Cat Person</span>
+                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full">Cat Person</span>
                   <span className="text-gray-300">•</span>
-                  <span className="px-3 py-1 border border-gray-300 rounded-full">BBQ Pro</span>
+                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full">BBQ Pro</span>
                 </div>
 
-                {/* Title / Company */}
-                <div className="py-4 border-y-2 border-dotted border-gray-300 w-full max-w-md text-center my-2">
+                {/* Title / Bio */}
+                <div className="py-4 border-y-2 border-dotted border-gray-300 w-full max-w-lg text-center my-2">
                   <p className="text-lg md:text-xl font-bold tracking-widest mb-2 text-gray-800">大模型运营经理 @ 百度</p>
-                  <p className="font-mono text-xs md:text-sm tracking-widest text-gray-500 uppercase">LLM Operation Manager, Baidu</p>
+                  <p className="font-mono text-xs md:text-sm tracking-widest text-gray-500 uppercase mb-4">LLM Operation Manager, Baidu</p>
+                  <p className="text-sm md:text-base text-gray-600 font-serif px-2 leading-relaxed">
+                    喜欢 <span className="font-bold text-black">Vibe Coding</span> 一女的，享受用自然语言驱动开发。<br/>
+                    这里展示了我的 <span className="font-bold text-black">GitHub 开源小项目们</span>，以及对 AI 的一点点热爱。
+                  </p>
                 </div>
 
                 {/* Contact Info */}
@@ -203,11 +219,16 @@ export default function App() {
         </header>
 
         {/* Section Title */}
-        <div className="flex items-center gap-4 mb-12">
+        <div id="projects" className="flex items-center gap-4 mb-12 scroll-mt-20">
           <div className="h-1 flex-1 bg-black"></div>
-          <h2 className="text-3xl font-bold uppercase tracking-widest px-4" style={{ fontFamily: 'Rye, serif' }}>
-            我的项目 My Projects
-          </h2>
+          <div className="text-center px-4">
+            <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest text-black" style={{ fontFamily: 'Rye, serif' }}>
+              GitHub 开源项目
+            </h2>
+            <p className="text-sm md:text-base text-gray-500 font-mono tracking-widest mt-2 uppercase">
+              Open Source Showcase
+            </p>
+          </div>
           <div className="h-1 flex-1 bg-black"></div>
         </div>
         </div>
@@ -323,19 +344,15 @@ export default function App() {
       </main>
 
       {/* Bottom Black Bar (Footer) */}
-      <footer className="bg-[#1a1a1a] text-[#f4f1ea] pt-12 pb-8 px-4 border-t-[8px] border-double border-black w-full relative z-20">
+      <footer id="contact" className="bg-[#1a1a1a] text-[#f4f1ea] pt-12 pb-8 px-4 border-t-[8px] border-double border-black w-full relative z-20">
         <div className="max-w-6xl mx-auto">
           {/* Footer Links Row */}
           <div className="flex flex-wrap justify-center gap-4 md:gap-8 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase mb-12 text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">Github</a>
+            <a href="https://github.com/vinkybb" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Github</a>
             <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white transition-colors">Twitter</a>
+            <a href="https://www.linkedin.com/in/vinkyshek1201" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
             <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-            <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white transition-colors">Dribbble</a>
-            <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white transition-colors">Email</a>
+            <a href="mailto:vinkyshi555@gmail.com" className="hover:text-white transition-colors">Email</a>
           </div>
 
           {/* Footer Content Grid */}
@@ -347,18 +364,28 @@ export default function App() {
             
             <div className="text-gray-400 space-y-2 flex flex-col justify-center">
               <p className="text-white font-bold mb-2">Questions or Comments</p>
-              <p>Email: <a href="mailto:hello@example.com" className="hover:text-white underline decoration-gray-600 underline-offset-4">hello@example.com</a></p>
-              <p>Or call: 1-800-VINTAGE</p>
+              <p>Email: <a href="mailto:vinkyshi555@gmail.com" className="hover:text-white underline decoration-gray-600 underline-offset-4">vinkyshi555@gmail.com</a></p>
             </div>
 
             <div className="text-gray-400 space-y-2 flex flex-col justify-center md:text-right">
-              <p>Monday - Friday 9AM - 6PM</p>
+              <p>Available for collaboration</p>
               <p>© 2026 VINKYBB. ALL RIGHTS RESERVED.</p>
-              <p>DESIGNED WITH VINTAGE AESTHETICS.</p>
+              <p>BUILT WITH VIBE CODING.</p>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* 跑过的黑猫动画 */}
+      {cats.map((cat) => (
+        <div
+          key={cat.id}
+          className="fixed left-0 z-50 pointer-events-none animate-run-cat text-5xl"
+          style={{ top: `${cat.top}vh` }}
+        >
+          🐈‍⬛
+        </div>
+      ))}
     </div>
   );
 }
