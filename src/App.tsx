@@ -192,7 +192,8 @@ export default function App() {
                   <p className="font-mono text-xs md:text-sm tracking-widest text-gray-500 uppercase mb-4">LLM Operation Manager, Baidu</p>
                   <p className="text-sm md:text-base text-gray-600 font-serif px-2 leading-relaxed">
                     喜欢 <span className="font-bold text-black">Vibe Coding</span> 一女的，享受用自然语言驱动开发。<br/>
-                    这里展示了我的 <span className="font-bold text-black">GitHub 开源小项目们</span>，以及对 AI 的一点点热爱。
+                    这里展示了我的 <span className="font-bold text-black">GitHub 开源小项目们</span>，<br/>
+                    以及对 AI 的一点点热爱。
                   </p>
                 </div>
 
