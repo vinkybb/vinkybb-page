@@ -188,13 +188,13 @@ export default function App() {
 
                 {/* Tags */}
                 <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2 font-mono text-xs md:text-sm tracking-tight md:tracking-normal text-gray-600 uppercase">
-                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full">AI Fiend</span>
+                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full flex items-center gap-1">👩‍💻 AI Fiend</span>
                   <span className="text-gray-300">•</span>
-                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full">ESTP</span>
+                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full flex items-center gap-1">🧱 ESTP</span>
                   <span className="text-gray-300">•</span>
-                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full">Cat Person</span>
+                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full flex items-center gap-1">🐱 Cat Person</span>
                   <span className="text-gray-300">•</span>
-                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full">BBQ Pro</span>
+                  <span className="px-2.5 py-0.5 border border-gray-300 rounded-full flex items-center gap-1">🍖 BBQ Pro</span>
                 </div>
 
                 {/* Title / Bio */}
