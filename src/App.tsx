@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Mail, Linkedin } from 'lucide-react';
 import avatarImg from '@/assets/avatar.jpg';
 
 const projects = [
@@ -7,8 +7,7 @@ const projects = [
     id: 1,
     title: "TravelNeko",
     subtitle: "Multi-Agent Narrative Game",
-    description:
-      "一个把多 Agent 叙事能力做成可玩体验的旅行猫咪小游戏原型。它不是简单的聊天壳，而是小镇 RPG + AI 剧情系统：主角猫可以在地图里探索、和猫咪互动、触发多 Agent 对话，并自动沉淀成旅行手账。",
+    description: "简介：这是一个将多 Agent 叙事能力转化为可玩体验的旅行猫咪小游戏原型。它超越了简单的聊天界面，构建了一个小镇 RPG 结合 AI 剧情的系统：玩家扮演的主角猫可以在地图中自由探索、与其他猫咪互动、触发多 Agent 对话，并将这些经历自动沉淀为独特的旅行手账。",
     date: "2026",
     category: "Game / Multi-Agent / Storytelling",
     type: "Open Source",
@@ -22,8 +21,7 @@ const projects = [
     id: 2,
     title: "Marketing Skills",
     subtitle: "OpenClaw Marketing Skill Library",
-    description:
-      "一个面向营销与增长团队的开源 AI skill 库，不是只会产出几段文案，而是覆盖市场研究、用户定位、SEO、预算分配、增长实验和活动复盘等完整工作链。重点是让本地 Agent 真正接住营销执行任务。",
+    description: "简介：专为营销与增长团队打造的开源 AI skill 库。它不仅限于生成文案，而是全面覆盖市场研究、用户定位、SEO 优化、预算分配、增长实验和活动复盘等完整的营销工作流。核心目标是赋予本地 Agent 真正接管和执行复杂营销任务的能力。",
     date: "2026",
     category: "AI / Marketing / Agent Skills",
     type: "Open Source",
@@ -37,8 +35,7 @@ const projects = [
     id: 3,
     title: "Enterprise Invoice Agent",
     subtitle: "Invoice Ops Copilot",
-    description:
-      "一个企业票据管理平台原型，把 PDF / 图片上传、OCR 字段提取、流程流转、风险审计和智能客服自动操作放进同一个腾讯文档风格工作台。重点在于自然语言先拆成 allowlist 动作，再安全驱动页面和流程。",
+    description: "简介：一款企业级票据管理平台原型。它将 PDF 和图片上传、OCR 智能字段提取、审批流转、风险审计以及智能客服自动操作集成在一个类似腾讯文档的协同工作台中。其创新之处在于：将自然语言指令解析为白名单动作，安全、精准地驱动页面交互和业务流程。",
     date: "2026",
     category: "AI / OCR / Enterprise SaaS",
     type: "Open Source",
@@ -154,20 +151,52 @@ export default function App() {
                 </svg>
               </div>
 
-              <p className="text-lg leading-relaxed max-w-2xl text-gray-800">
-                上班的时候研究 AI & 产品，下班的时候就在吃烤肉。
-              </p>
-              
-              {/* Social Links */}
-              <div className="flex items-center justify-center gap-4 mt-8 font-mono text-sm">
-                <a
-                  href="https://github.com/vinkybb"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-1 hover:underline underline-offset-4 decoration-2"
-                >
-                  <Github className="w-4 h-4" /> GITHUB
-                </a>
+              <div className="flex flex-col items-center gap-6 text-gray-800 w-full mt-4">
+                
+                {/* Greeting & Name */}
+                <div className="space-y-2 text-center">
+                  <h1 className="font-bold text-3xl md:text-4xl tracking-wide text-gray-900" style={{ fontFamily: 'Rye, serif' }}>
+                    你好，我是 Vinky
+                  </h1>
+                  <p className="text-xl text-gray-600 font-serif italic">
+                    Hi, I'm Vinky (Wenjing Shi)
+                  </p>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap justify-center items-center gap-3 font-mono text-xs md:text-sm tracking-widest text-gray-600 uppercase">
+                  <span className="px-3 py-1 border border-gray-300 rounded-full">AI Fiend</span>
+                  <span className="text-gray-300">•</span>
+                  <span className="px-3 py-1 border border-gray-300 rounded-full">ESTP</span>
+                  <span className="text-gray-300">•</span>
+                  <span className="px-3 py-1 border border-gray-300 rounded-full">Cat Person</span>
+                  <span className="text-gray-300">•</span>
+                  <span className="px-3 py-1 border border-gray-300 rounded-full">BBQ Pro</span>
+                </div>
+
+                {/* Title / Company */}
+                <div className="py-4 border-y-2 border-dotted border-gray-300 w-full max-w-md text-center my-2">
+                  <p className="text-lg md:text-xl font-bold tracking-widest mb-2 text-gray-800">大模型运营经理 @ 百度</p>
+                  <p className="font-mono text-xs md:text-sm tracking-widest text-gray-500 uppercase">LLM Operation Manager, Baidu</p>
+                </div>
+
+                {/* Contact Info */}
+                <div className="flex flex-col md:flex-row items-center gap-6 mt-2 font-mono text-sm">
+                  <a href="mailto:vinkyshi555@gmail.com" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors group">
+                    <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    <span className="border-b border-transparent group-hover:border-black pb-0.5">vinkyshi555@gmail.com</span>
+                  </a>
+                  <span className="hidden md:block text-gray-300">|</span>
+                  <a href="https://www.linkedin.com/in/vinkyshek1201" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors group">
+                    <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    <span className="border-b border-transparent group-hover:border-black pb-0.5">LinkedIn</span>
+                  </a>
+                  <span className="hidden md:block text-gray-300">|</span>
+                  <a href="https://github.com/vinkybb" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors group">
+                    <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    <span className="border-b border-transparent group-hover:border-black pb-0.5">GitHub</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -177,7 +206,7 @@ export default function App() {
         <div className="flex items-center gap-4 mb-12">
           <div className="h-1 flex-1 bg-black"></div>
           <h2 className="text-3xl font-bold uppercase tracking-widest px-4" style={{ fontFamily: 'Rye, serif' }}>
-            Featured Applications
+            我的项目 My Projects
           </h2>
           <div className="h-1 flex-1 bg-black"></div>
         </div>
@@ -239,9 +268,17 @@ export default function App() {
                           </a>
                         </div>
                         
-                        <p className="text-lg leading-relaxed mb-8 text-gray-400 mt-6">
+                        <p className="text-lg leading-relaxed mb-6 text-gray-400 mt-6">
                           {project.description}
                         </p>
+                        <a
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 text-[#f4f1ea] hover:text-white hover:underline underline-offset-4 font-mono text-sm uppercase mb-4"
+                        >
+                          View more -&gt; 跳转 GitHub
+                        </a>
                       </div>
 
                       {/* Ticket Meta Data (Bottom Section) */}
