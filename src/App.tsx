@@ -157,9 +157,6 @@ export default function App() {
                     {/* Bottom Decorative Swoosh */}
                     <path d="M 80 145 C 200 185, 360 175, 460 130 C 380 170, 210 170, 70 135 Z" fill="#111" />
                   </g>
-                  
-                  {/* Subtitle */}
-                  <text x="250" y="180" textAnchor="middle" className="vintage-subtitle">VINKYBB EST. 2026</text>
                 </svg>
               </div>
 
