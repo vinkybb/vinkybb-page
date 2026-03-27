@@ -103,10 +103,7 @@ export default function App() {
             <span className="opacity-30">|</span>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </div>
-          <div className="hidden md:flex items-center gap-2">
-            <span className="text-gray-400">Search</span>
-            <div className="w-24 h-4 border border-gray-600 bg-black"></div>
-          </div>
+          <div className="hidden md:block font-bold text-gray-400 invisible">Est. 2026</div> {/* Spacer for flex-between balance */}
         </div>
       </nav>
 
