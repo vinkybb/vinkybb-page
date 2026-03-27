@@ -63,8 +63,19 @@ const projects = [
 
 export default function App() {
   const [cats, setCats] = useState<{ id: number; top: number }[]>([]);
+  const [showTapMe, setShowTapMe] = useState(false);
+
+  // 页面加载 2 秒后显示 Tap me
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowTapMe(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleAvatarClick = () => {
+    // 点击后隐藏 Tap me
+    setShowTapMe(false);
     // 随机生成猫咪的高度，避免多只猫重叠，限制在视口中间或偏下
     const top = Math.random() * 40 + 40; // 40vh 到 80vh 之间
     const newCat = { id: Date.now(), top };
@@ -128,6 +139,15 @@ export default function App() {
               </div>
               {/* Decorative circle behind avatar */}
               <div className="absolute -inset-2 border-2 border-dashed border-black rounded-full animate-[spin_60s_linear_infinite] group-hover:border-solid transition-all"></div>
+              
+              {/* Tap Me Tooltip */}
+              <div 
+                className={`absolute -right-12 top-4 md:-right-16 md:top-6 bg-black text-[#f4f1ea] font-mono text-xs px-2 py-1 rounded shadow-lg transform transition-all duration-700 ease-in-out z-20 ${showTapMe ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2 pointer-events-none'}`}
+              >
+                Tap me!
+                {/* Tooltip arrow */}
+                <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-black rotate-45"></div>
+              </div>
             </div>
 
             {/* Intro Text */}
