@@ -4,6 +4,20 @@ import avatarImg from '@/assets/avatar.jpg';
 
 const projects = [
   {
+    id: 0,
+    title: "OpenClaw Auto-Blogger",
+    subtitle: "Automated Content Generation Pipeline",
+    description: "简介：基于 OpenClaw 框架构建的全自动博客生成与发布流水线。该工具可以根据订阅的 RSS 源或热门话题，自动进行信息摘要、深度扩写、配图生成，并最终格式化为 Markdown 自动发布到指定平台，解放内容创作者的双手。",
+    date: "2026",
+    category: "AI / OpenClaw / Automation",
+    type: "Open Source",
+    stack: "Python / OpenClaw / Markdown",
+    repo: "vinkybb/openclaw-auto-blogger",
+    repoUrl: "https://github.com/vinkybb/openclaw-auto-blogger",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
     id: 1,
     title: "TravelNeko",
     subtitle: "Multi-Agent Narrative Game",
