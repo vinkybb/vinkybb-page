@@ -65,11 +65,11 @@ export default function App() {
   const [cats, setCats] = useState<{ id: number; top: number }[]>([]);
   const [showTapMe, setShowTapMe] = useState(false);
 
-  // 页面加载 2 秒后显示 Tap me
+  // 页面加载 1 秒后显示 Tap me
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setShowTapMe(true);
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
